@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"; // <-- Yeh line add kar di maine
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +14,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Premium Medical Aesthetics",
-  description: "Advanced Clinical Cosmetology & Aesthetic Medicine Courses",
+  title: "CKAAMS | Aesthetic Medicine & Cosmetology Courses in India",
+
+  description:
+    "Join CKAAMS - Cosmetic Krafts Academy of Aesthetic Medicine and Surgery. Learn aesthetic medicine, cosmetology, botox, fillers, and laser treatments with hands-on training and certification.",
+
+  keywords: [
+    "aesthetic medicine course india",
+    "cosmetology course india",
+    "botox filler training",
+    "dermal fillers course",
+    "clinical cosmetology courses",
+    "aesthetic medicine certification",
+    "cosmetic surgery training",
+    "hair transplant training",
+    "laser treatment course",
+    "best aesthetic academy india",
+    "CKAAMS",
+  ],
+
+  verification: {
+    google: "lUplk3qN-D0gl5G-iZWEXjUwbtlFsNTduWo50TseOqY",
+  },
+
+  openGraph: {
+    title: "CKAAMS - Aesthetic Medicine Courses",
+    description:
+      "Advance your career with professional training in aesthetic medicine, cosmetology, botox, fillers, and laser treatments.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -24,19 +51,12 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black"> 
-        
-        {/* Navbar har page par dikhega */}
-        <Navbar/>
+      <body className="min-h-full flex flex-col bg-black text-white">
+        <Navbar />
 
-        {/* Page ka main content */}
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main className="flex-grow">{children}</main>
 
-        {/* Footer yahan render hoga */}
-        <Footer/>
-
+        <Footer />
       </body>
     </html>
   );
