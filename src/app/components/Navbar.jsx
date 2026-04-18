@@ -26,10 +26,10 @@ const Navbar = () => {
   }, []);
 
   const courses = [
-    { code: "PGDCC", name: "Clinical Cosmetology", link: "/pgdcc" },
-    { code: "FAM", name: "Aesthetic Medicine", link: "/fam" },
-    { code: "FMC", name: "Medical Cosmetology", link: "/medical-cosmetic" },
-    { code: "MCVS", name: "Vitiligo Surgery", link: "/mcvs" }
+    { code: "PGDCC", name: "Clinical Cosmetology", link: "/pgdcc-post-graduate-diploma-in-clinical-cosmetology" },
+    { code: "FAM", name: "Aesthetic Medicine", link: "/fam-fellowship-in-aesthetic-medicine" },
+    { code: "FMC", name: "Medical Cosmetology", link: "/medical-cosmetic-institute-raipur" },
+    { code: "MCVS", name: "Vitiligo Surgery", link: "/mcvs-master-couse-in-vitiligo-surgery" }
   ];
 
   const navLinks = [
