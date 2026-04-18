@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
-import { CheckCircle2, Clock, Users, ArrowRight, Award, ShieldCheck, Sparkles } from 'lucide-react';
+import { CheckCircle2, Clock, Users, ArrowRight, Award, Zap } from 'lucide-react';
 
-const PGDCCPage = () => {
+const FAMFellowshipPage = () => {
   return (
     <div className="bg-[#fcfbf7] min-h-screen pt-28 pb-20 px-4 md:px-12 relative overflow-hidden">
       
@@ -14,10 +14,10 @@ const PGDCCPage = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* --- 1. HERO SECTION: PREMIUM SPLIT LAYOUT --- */}
+        {/* --- 1. HERO SECTION: PREMIUM SPLIT LAYOUT (Normal Wide Image Fix) --- */}
         <section className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-28 border-b border-black/5 pb-16">
           
-          {/* Left: Text Content */}
+          {/* Left: Simplified Text Content */}
           <div className="w-full lg:w-3/5 space-y-6 text-center lg:text-left order-2 lg:order-1 flex flex-col items-center lg:items-start">
             
             <motion.div 
@@ -26,7 +26,7 @@ const PGDCCPage = () => {
               className="inline-flex items-center gap-3 text-[#ae965b]"
             >
               <div className="w-8 h-[2px] bg-[#ae965b]" />
-              <span className="text-[10px] font-black uppercase tracking-[0.4em]">Post Graduate Diploma</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.4em]">Advanced Certification</span>
             </motion.div>
             
             <motion.div
@@ -36,14 +36,14 @@ const PGDCCPage = () => {
               className="space-y-1"
             >
               <h1 className="text-black text-5xl md:text-6xl font-black uppercase italic tracking-tighter leading-none mb-2">
-                PGDCC <span className="text-[#ae965b] not-italic underline decoration-1 underline-offset-8">Diploma.</span>
+                FAM <span className="text-[#ae965b] not-italic underline decoration-1 underline-offset-8">Fellowship.</span>
               </h1>
               <p className="text-zinc-500 text-sm md:text-base font-bold uppercase tracking-[0.15em] italic">
-                Clinical Cosmetology
+                Fellowship in Aesthetic Medicine
               </p>
             </motion.div>
 
-            {/* --- TOP BRAND LOGO --- */}
+            {/* --- TOP BRAND LOGO (Integrated with Title) --- */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -60,7 +60,7 @@ const PGDCCPage = () => {
             </motion.div>
 
             <p className="text-zinc-500 text-xs md:text-sm max-w-lg leading-relaxed font-medium mx-auto lg:mx-0 opacity-90">
-              Equipping doctors with elite expertise in aesthetic treatments through advanced clinical breakthroughs. Perform actual procedures under expert supervision. रायपुर.
+              An intensive 6-month journey covering fundamental principles of medical science and artistic beauty. Perform actual procedures under expert supervision. रायपुर.
             </p>
             
             <motion.a
@@ -72,7 +72,7 @@ const PGDCCPage = () => {
             </motion.a>
           </div>
 
-          {/* Right: Framed Image */}
+          {/* Right: Framed Wide Image (Normal look, Responsive) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -80,24 +80,27 @@ const PGDCCPage = () => {
             className="w-full lg:w-2/5 flex justify-center lg:justify-end order-1 lg:order-2"
           >
             <div className="relative group max-w-[450px]">
+               {/* Minimalist White Frame for the Image */}
                <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl aspect-[3/4] lg:aspect-[4/5] bg-white hover:border-[#ae965b]/20 transition-colors">
                   <img 
                     src="/images/cardcourses/FMA1.png" 
                     className="w-full h-full object-cover object-top md:object-[center_30%]" 
-                    alt="PGDCC Clinical Cosmetology" 
+                    alt="FAM Aesthetic Medicine" 
                   />
                </div>
+               
+               {/* Subtle "Active" Badge */}
                <div className="absolute -top-4 -right-4 w-5 h-5 bg-green-500 border-4 border-white rounded-full animate-pulse shadow-lg"></div>
             </div>
           </motion.div>
         </section>
 
-        {/* --- 2. QUICK DETAILS --- */}
+        {/* --- 2. QUICK DETAILS (No Black, Clean Cards) --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-28">
           {[
-            { icon: <Clock size={20}/>, t: "Duration", v: "3 Months Intensive" },
+            { icon: <Clock size={20}/>, t: "Duration", v: "6 Months Intensive" },
             { icon: <Users size={20}/>, t: "Eligibility", v: "MBBS / BAMS / BDS" },
-            { icon: <ShieldCheck size={20}/>, t: "Certification", v: "Advanced Clinical" }
+            { icon: <Award size={20}/>, t: "Certification", v: "Globally Recognized" }
           ].map((item, i) => (
             <div key={i} className="bg-white p-6 md:p-8 rounded-[2rem] border border-black/5 flex items-center gap-5 shadow-sm hover:shadow-lg transition-shadow">
                <div className="bg-[#ae965b]/10 p-3 rounded-xl text-[#ae965b]">{item.icon}</div>
@@ -109,18 +112,20 @@ const PGDCCPage = () => {
           ))}
         </div>
 
-        {/* --- 3. LEARN HIGHLIGHTS --- */}
+        {/* --- 3. LEARN HIGHLIGHTS (Minimalist Clean Grid) --- */}
         <div className="mb-28">
           <div className="text-left mb-12 flex flex-col items-start gap-1">
-             <p className="text-[#ae965b] text-[10px] font-black uppercase tracking-[0.4em]">Curriculum</p>
-             <h3 className="text-black text-2xl font-black uppercase italic tracking-tighter border-b-2 border-black w-fit pb-2 leading-tight text-center">Mastering <span className="text-[#ae965b]">Clinical Aesthetics</span></h3>
+             <p className="text-[#ae965b] text-[10px] font-black uppercase tracking-[0.4em]">Programme</p>
+             <h3 className="text-black text-2xl font-black uppercase italic tracking-tighter border-b-2 border-black w-fit pb-2 leading-tight">What You Will <span className="text-[#ae965b]">Master</span></h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            {/* Fundamentals Card */}
             <div className="bg-white p-8 rounded-[2.5rem] border border-black/5 hover:border-[#ae965b]/50 transition-colors group">
-              <h3 className="text-black font-black uppercase italic text-lg mb-4 border-b border-black/5 pb-3 group-hover:text-[#ae965b]">Skin & Aesthetics</h3>
+              <h3 className="text-black font-black uppercase italic text-lg mb-4 border-b border-black/5 pb-3 group-hover:text-[#ae965b]">Core Foundations</h3>
               <ul className="space-y-3">
-                {["Chemical Peels", "Microdermabrasion", "Skin Rejuvenation", "Laser Therapies"].map((item, i) => (
+                {["Core Principles", "Anatomy & Physiology", "Patient Consultation", "Complication Mgmt"].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-zinc-500 text-[10px] font-black uppercase tracking-widest">
                     <CheckCircle2 size={14} className="text-[#ae965b]" /> {item}
                   </li>
@@ -128,10 +133,11 @@ const PGDCCPage = () => {
               </ul>
             </div>
 
+            {/* Advanced Techniques */}
             <div className="bg-white p-8 rounded-[2.5rem] border border-black/5 hover:border-[#ae965b]/50 transition-colors group">
-              <h3 className="text-black font-black uppercase italic text-lg mb-4 border-b border-black/5 pb-3 group-hover:text-[#ae965b]">Trichology</h3>
+              <h3 className="text-black font-black uppercase italic text-lg mb-4 border-b border-black/5 pb-3 group-hover:text-[#ae965b]">Advanced Tech</h3>
               <ul className="space-y-3">
-                {["Hair Loss Treatments", "PRP Therapy", "Mesotherapy", "Scalp Care"].map((item, i) => (
+                {["Botox & Dermal Fillers", "Chemical Peels", "Laser Treatments", "Anti-aging Solutions"].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-zinc-500 text-[10px] font-black uppercase tracking-widest">
                     <CheckCircle2 size={14} className="text-[#ae965b]" /> {item}
                   </li>
@@ -139,50 +145,28 @@ const PGDCCPage = () => {
               </ul>
             </div>
 
+            {/* Practical Card */}
             <div className="bg-white p-8 rounded-[2.5rem] border border-black/5 hover:border-[#ae965b]/50 transition-colors group">
-              <h3 className="text-black font-black uppercase italic text-lg mb-4 border-b border-black/5 pb-3 group-hover:text-[#ae965b]">Injectables</h3>
+              <h3 className="text-black font-black uppercase italic text-lg mb-4 border-b border-black/5 pb-3 group-hover:text-[#ae965b]">Hands-On Contact</h3>
               <ul className="space-y-3">
-                {["Botox Expertise", "Dermal Fillers", "Facial Contouring", "Anti-aging"].map((item, i) => (
+                {["10 Days intensive Program", "Real-Time Procedures", "Live Patient Training", "Expert Supervisor"].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-zinc-500 text-[10px] font-black uppercase tracking-widest">
                     <CheckCircle2 size={14} className="text-[#ae965b]" /> {item}
                   </li>
                 ))}
               </ul>
             </div>
+
           </div>
         </div>
 
-        {/* --- 4. WHY CKAAMS? --- */}
-        <section className="mb-32">
-          <div className="text-center mb-16">
-            <h2 className="text-black text-4xl md:text-6xl font-black uppercase italic tracking-tighter leading-none">
-               Why <span className="text-[#ae965b] not-italic">CKAAMS?</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            <div className="bg-white p-10 rounded-[3rem] border border-black/5 flex items-start gap-6 shadow-sm">
-              <div className="bg-[#ae965b]/10 p-4 rounded-2xl text-[#ae965b]"><Award size={24}/></div>
-              <div>
-                <h4 className="font-black uppercase italic text-sm mb-2">Industry Curriculum</h4>
-                <p className="text-zinc-500 text-xs font-medium leading-relaxed uppercase">Learn the latest techniques from international faculty and practitioners.</p>
-              </div>
-            </div>
-            <div className="bg-white p-10 rounded-[3rem] border border-black/5 flex items-start gap-6 shadow-sm">
-              <div className="bg-[#ae965b]/10 p-4 rounded-2xl text-[#ae965b]"><ShieldCheck size={24}/></div>
-              <div>
-                <h4 className="font-black uppercase italic text-sm mb-2">Hands-On Training</h4>
-                <p className="text-zinc-500 text-xs font-medium leading-relaxed uppercase">Perform procedures on live patients under expert clinical supervision.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* --- 5. ENROLLMENT FORM --- */}
+        {/* --- 4. CLEAN ENROLLMENT FORM (No Black, Visible Text Fix) --- */}
         <div id="enroll" className="max-w-4xl mx-auto bg-white p-8 md:p-16 rounded-[3rem] shadow-[0_30px_100px_rgba(0,0,0,0.05)] border border-black/5 relative overflow-hidden">
+          {/* Subtle Accent Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#ae965b]/10 blur-[100px] rounded-full pointer-events-none" />
           
           <div className="text-center mb-10 relative z-10">
-            <h2 className="text-black text-4xl font-black uppercase italic tracking-tighter leading-none text-center">Enroll <span className="text-[#ae965b]">Now</span></h2>
+            <h2 className="text-black text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-none">Enroll <span className="text-[#ae965b]">Now</span></h2>
             <p className="text-[#ae965b] font-black uppercase text-[10px] tracking-[0.4em] mt-3">Gateway to Aesthetic Excellence</p>
           </div>
           
@@ -207,4 +191,4 @@ const PGDCCPage = () => {
   );
 };
 
-export default PGDCCPage;
+export default FAMFellowshipPage;

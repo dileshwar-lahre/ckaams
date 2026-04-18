@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Scroll effect to change navbar height/bg
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -15,11 +16,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when screen resized to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setIsOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const courses = [
-    { code: "PGDCC", name: "Post Graduate Diploma in Clinical Cosmetology", link: "/pgdcc-post-graduate-diploma-in-clinical-cosmetology" },
-    { code: "FAM", name: "Fellowship in Aesthetic Medicine", link: "/fam" },
-    { code: "FMC", name: "Fellowship in Medical Cosmetology", link: "/fmc" },
-    { code: "MCVS", name: "Master Course in Vitiligo Surgery", link: "/mcvs" }
+    { code: "PGDCC", name: "Clinical Cosmetology", link: "/pgdcc" },
+    { code: "FAM", name: "Aesthetic Medicine", link: "/fam" },
+    { code: "FMC", name: "Medical Cosmetology", link: "/medical-cosmetic" },
+    { code: "MCVS", name: "Vitiligo Surgery", link: "/mcvs" }
   ];
 
   const navLinks = [
@@ -30,130 +40,123 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
-      scrolled ? 'bg-black/95 backdrop-blur-md h-20 border-b border-[#D4AF37]/30 shadow-2xl' : 'bg-black h-28'
-    }`}>
+    <nav className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ${
+      scrolled ? 'bg-black/95 h-20 shadow-xl' : 'bg-black h-24'
+    } border-b border-[#8e7941]/20`}>
+      
       <div className="max-w-7xl mx-auto h-full px-6 flex justify-between items-center">
         
-        {/* Logo Section */}
-        <div className="flex items-center gap-3 cursor-pointer group">
-          <div className="relative w-16 h-16 md:w-20 md:h-20 transition-transform duration-500 group-hover:scale-110">
-            <img 
-              src="/images/ckaams.jpg" 
-              alt="CKAAMS Logo" 
-              className="w-full h-full object-contain rounded-full border border-[#D4AF37]/30"
-            />
-          </div>
-          <div className="hidden sm:flex flex-col">
-            <span className="text-[#D4AF37] text-2xl font-black tracking-tighter leading-none">CKAAMS</span>
-            <span className="text-white text-[10px] tracking-[0.3em] uppercase opacity-70">Academy</span>
+        {/* Logo */}
+        <div className="flex items-center gap-3">
+          <img 
+            src="/images/ckaams.jpg" 
+            alt="Logo" 
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#8e7941]"
+          />
+          <div className="flex flex-col">
+            <span className="text-[#8e7941] text-xl font-bold tracking-tight">CKAAMS</span>
+            <span className="text-white text-[8px] tracking-widest uppercase opacity-60">Academy</span>
           </div>
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-10">
-          <ul className="flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
+          <ul className="flex items-center gap-8 text-sm font-semibold uppercase tracking-wider">
             {navLinks.slice(0, 2).map((item) => (
-              <li key={item.name} className="relative group py-2">
-                <a href={item.link} className="text-[15px] uppercase tracking-widest font-bold text-white/80 hover:text-[#D4AF37] transition-colors">
-                  {item.name}
-                </a>
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#D4AF37] group-hover:w-full transition-all duration-300"></span>
+              <li key={item.name}>
+                <a href={item.link} className="text-white/80 hover:text-[#8e7941] transition-colors">{item.name}</a>
               </li>
             ))}
 
-            {/* Dropdown Courses */}
+            {/* Simple Dropdown */}
             <li 
-              className="relative py-8 group cursor-pointer"
+              className="relative group py-4"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <div className="flex items-center gap-2 text-[15px] uppercase tracking-widest font-bold text-[#D4AF37]">
-                Our Courses
-                <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform duration-500 ${isHovered ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
+              <button className="flex items-center gap-1 text-[#8e7941]">
+                Courses
+                <svg className={`w-4 h-4 transition-transform ${isHovered ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
 
-              <div className={`absolute top-full left-[-100px] w-[450px] bg-[#0c0c0c] border border-[#D4AF37]/20 rounded-2xl overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.9)] transition-all duration-500 transform ${
-                isHovered ? 'opacity-100 translate-y-0 visible scale-100' : 'opacity-0 -translate-y-10 invisible scale-95'
-              }`}>
-                <div className="p-5 bg-[#D4AF37]/5 border-b border-[#D4AF37]/10">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] font-black">Specialized Programs</span>
-                </div>
-                <div className="grid grid-cols-1">
-                  {courses.map((course, index) => (
-                    <a key={index} href={course.link} className="group/item flex items-center px-6 py-5 hover:bg-gradient-to-r hover:from-[#D4AF37]/10 hover:to-transparent transition-all border-b border-white/5 last:border-0">
-                      <div className="min-w-[60px] h-10 flex items-center justify-center bg-black border border-[#D4AF37]/20 text-[#D4AF37] text-[10px] font-bold rounded group-hover/item:bg-[#D4AF37] group-hover/item:text-black transition-all">
-                        {course.code}
-                      </div>
-                      <p className="ml-4 text-xs font-bold text-white/90 group-hover/item:text-white leading-relaxed uppercase tracking-wider">
+              {isHovered && (
+                <ul className="absolute top-full left-0 w-56 bg-[#111] border border-[#8e7941]/30 rounded-md py-2 shadow-2xl animate-in fade-in slide-in-from-top-2">
+                  {courses.map((course) => (
+                    <li key={course.code}>
+                      <a href={course.link} className="block px-4 py-3 text-xs text-white/80 hover:bg-[#8e7941] hover:text-black transition-all">
                         {course.name}
-                      </p>
-                    </a>
+                      </a>
+                    </li>
                   ))}
-                </div>
-              </div>
+                </ul>
+              )}
             </li>
 
             {navLinks.slice(2).map((item) => (
-              <li key={item.name} className="relative group py-2">
-                <a href={item.link} className="text-[15px] uppercase tracking-widest font-bold text-white/80 hover:text-[#D4AF37] transition-colors">
-                  {item.name}
-                </a>
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#D4AF37] group-hover:w-full transition-all duration-300"></span>
+              <li key={item.name}>
+                <a href={item.link} className="text-white/80 hover:text-[#8e7941] transition-colors">{item.name}</a>
               </li>
             ))}
           </ul>
 
-          <button className="px-8 py-3 bg-[#D4AF37] text-black font-black uppercase text-xs tracking-[0.2em] rounded-md hover:bg-white transition-all">
+          {/* Desktop Apply Now Button - Updated to Link */}
+          <a 
+            href="/contact" 
+            className="ml-4 px-6 py-2.5 bg-[#8e7941] text-black font-bold text-xs uppercase rounded-sm hover:bg-white transition-all text-center inline-block"
+          >
             Apply Now
-          </button>
+          </a>
         </div>
 
-        {/* Mobile Toggle */}
-        <div className="lg:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-[#D4AF37] z-[110] relative">
-            {isOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
+        {/* Mobile Toggle Button */}
+        <button 
+          onClick={() => setIsOpen(!isOpen)} 
+          className="lg:hidden text-[#8e7941] p-2 focus:outline-none"
+        >
+          {isOpen ? (
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          ) : (
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          )}
+        </button>
       </div>
 
-      {/* Mobile Menu Slide - Left to Right */}
-      <div className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[105] transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} lg:hidden`} onClick={() => setIsOpen(false)}>
-        <div 
-          className={`absolute top-0 left-0 w-[80%] max-w-[300px] h-full bg-[#0c0c0c] border-r border-[#D4AF37]/20 p-8 pt-24 transition-transform duration-500 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex flex-col gap-6">
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-black z-[10000] lg:hidden transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex flex-col h-full p-8">
+          {/* Mobile Close Button */}
+          <div className="flex justify-end">
+            <button onClick={() => setIsOpen(false)} className="text-[#8e7941]">
+              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-6">
             {navLinks.map((link) => (
-              <a key={link.name} href={link.link} className="text-xl font-bold uppercase tracking-wider text-white hover:text-[#D4AF37]" onClick={() => setIsOpen(false)}>
+              <a key={link.name} href={link.link} className="text-2xl font-bold text-white border-b border-white/10 pb-2" onClick={() => setIsOpen(false)}>
                 {link.name}
               </a>
             ))}
             
-            <div className="h-[1px] bg-white/10 my-2" />
-            
-            <p className="text-[#D4AF37] text-xs font-black uppercase tracking-[0.3em] mb-2">Our Courses</p>
-            <div className="flex flex-col gap-4">
-              {courses.map((course) => (
-                <a key={course.code} href={course.link} className="text-sm font-medium text-white/70 hover:text-white" onClick={() => setIsOpen(false)}>
-                  {course.code} - {course.name}
-                </a>
-              ))}
+            <div className="mt-4">
+              <p className="text-[#8e7941] text-sm font-bold uppercase mb-4">Our Courses</p>
+              <div className="flex flex-col gap-4 pl-4 border-l border-[#8e7941]/30">
+                {courses.map((course) => (
+                  <a key={course.code} href={course.link} className="text-white/70 text-lg" onClick={() => setIsOpen(false)}>
+                    {course.name}
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <button className="mt-8 px-6 py-4 bg-[#D4AF37] text-black font-black uppercase tracking-widest rounded-md text-sm">
+            {/* Mobile Admission Button - Updated to Link */}
+            <a 
+              href="/contact" 
+              className="mt-10 w-full py-4 bg-[#8e7941] text-black font-bold uppercase tracking-widest text-center"
+              onClick={() => setIsOpen(false)}
+            >
               Admission Open
-            </button>
+            </a>
           </div>
         </div>
       </div>

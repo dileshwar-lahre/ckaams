@@ -36,8 +36,8 @@ const Acad = () => {
               Cosmetology
             </h1>
             <div className="flex items-baseline gap-2 md:gap-3">
-              <span className="text-lg md:text-2xl font-medium italic text-[#D4AF37]">with</span>
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-widest text-[#D4AF37]">
+              <span className="text-lg md:text-2xl font-medium italic text-[#8e7941]">with</span>
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-widest text-[#8e7941]">
                 CKAAMS
               </h2>
             </div>
@@ -47,11 +47,11 @@ const Acad = () => {
           <div className="space-y-4 md:space-y-6 pt-2 md:pt-4">
             <p className="text-zinc-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg">
               Welcome to CKAAMS, a premier training institute dedicated to providing world-class 
-              education in <span className="font-bold underline decoration-[#D4AF37]">aesthetic medicine and cosmetic procedures</span>. 
+              education in <span className="font-bold underline decoration-[#8e7941]">aesthetic medicine and cosmetic procedures</span>. 
               Our specialized courses are designed to empower professionals.
             </p>
 
-            <p className="text-zinc-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg border-l-2 border-[#D4AF37] pl-4 md:pl-5 italic">
+            <p className="text-zinc-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg border-l-2 border-[#8e7941] pl-4 md:pl-5 italic">
               As a result, patients experience noticeable improvements in their skin health. 
               Or medical professionals who aspire to excel in the rapidly growing field of 
               cosmetology, dermatology, and aesthetic surgery.
@@ -60,13 +60,13 @@ const Acad = () => {
 
           {/* Footer Text & CTA - Button mobile responsive */}
           <div className="pt-4 md:pt-8 space-y-4 md:space-y-6">
-            <p className="text-[#D4AF37] font-bold text-[10px] sm:text-xs md:text-base tracking-widest uppercase">
+            <p className="text-[#8e7941] font-bold text-[10px] sm:text-xs md:text-base tracking-widest uppercase">
               Search for best Cosmetic Institute & ask yourself the question?
             </p>
             
             <motion.button 
               whileHover={{ scale: 1.05 }}
-              className="bg-[#D4AF37] text-black font-black px-8 md:px-10 py-3 md:py-4 rounded-sm uppercase text-[10px] md:text-xs tracking-[0.2em] flex items-center gap-3 transition-all hover:bg-white"
+              className="bg-[#8e7941] text-black font-black px-8 md:px-10 py-3 md:py-4 rounded-sm uppercase text-[10px] md:text-xs tracking-[0.2em] flex items-center gap-3 transition-all hover:bg-white"
             >
               Contact Us <span>➔</span>
             </motion.button>

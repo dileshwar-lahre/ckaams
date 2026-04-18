@@ -35,7 +35,7 @@ const Testimonials = () => {
         
         {/* Header Section */}
         <div className="text-center mb-16">
-          <motion.span className="text-[#D4AF37] font-bold tracking-[0.4em] uppercase text-xs">
+          <motion.span className="text-[#8e7941] font-bold tracking-[0.4em] uppercase text-xs">
             TESTIMONIALS
           </motion.span>
           <h2 className="text-black text-3xl md:text-5xl font-black tracking-tighter uppercase mt-2">
@@ -55,7 +55,7 @@ const Testimonials = () => {
               className="flex flex-col items-center text-center"
             >
               {/* Image - Rounded & Simple */}
-              <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-2 border-[#D4AF37]/30 mb-8">
+              <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-2 border-[#8e7941]/30 mb-8">
                 <img 
                   src={reviews[index].img} 
                   alt={reviews[index].name} 
@@ -69,7 +69,7 @@ const Testimonials = () => {
               </p>
 
               {/* Name */}
-              <h4 className="text-[#D4AF37] font-black text-base md:text-xl uppercase tracking-widest">
+              <h4 className="text-[#8e7941] font-black text-base md:text-xl uppercase tracking-widest">
                 {reviews[index].name}
               </h4>
             </motion.div>
@@ -89,7 +89,7 @@ const Testimonials = () => {
               {reviews.map((_, i) => (
                 <div 
                   key={i}
-                  className={`h-1.5 transition-all duration-300 rounded-full ${index === i ? "w-6 bg-[#D4AF37]" : "w-1.5 bg-black/10"}`}
+                  className={`h-1.5 transition-all duration-300 rounded-full ${index === i ? "w-6 bg-[#8e7941]" : "w-1.5 bg-black/10"}`}
                 />
               ))}
             </div>
